@@ -109,7 +109,8 @@ func (d Data) check() {
 	}
 	percentRamLoad := d.RAMUsage * 100 / d.RAM
 	if percentRamLoad > 80 {
-		fmt.Printf("Memory usage too high: %d%/n", percentRamLoad)
+		msg := fmt.Sprintf("Memory usage too high: %d", percentRamLoad) + "%"
+		fmt.Println(msg)
 	}
 	percentRomLoad := d.ROMUsage * 100 / d.ROM
 	if percentRomLoad > 90 {
