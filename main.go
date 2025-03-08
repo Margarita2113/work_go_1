@@ -109,15 +109,15 @@ func (d Data) check() {
 	}
 	percentRamLoad := d.RAMUsage * 100 / d.RAM
 	if percentRamLoad > 80 {
-		fmt.Println(fmt.Sprintf("Memory usage too high: %.f", percentRamLoad) + "%")
+		fmt.Println(fmt.Sprintf("Memory usage too high: %d", percentRamLoad) + "%")
 	}
 	percentRomLoad := d.ROMUsage * 100 / d.ROM
 	if percentRomLoad > 90 {
-		fmt.Println(fmt.Sprintf("Free disk space is too low: %d Mb left", (d.ROM-d.ROMUsage)/(1024*1024)))
+		fmt.Println(fmt.Sprintf("Free disk space is too low: %d Mb left", (d.ROM-d.ROMUsage)/(1000*1000)))
 	}
 	percentNetwork := d.NetworkUsage * 100 / d.Network
 	if percentNetwork > 90 {
 		fmt.Println(fmt.Sprintf("Network bandwidth usage high: %d Mbit/s available",
-			(d.Network-d.NetworkUsage)/(1024*1024)))
+			(d.Network-d.NetworkUsage)/(1000*1000)))
 	}
 }
